@@ -1,6 +1,4 @@
-name: Publish Package
-description: Publish package to NPM Registry
-author: Abhijith Vijayan
+name: Publish package to NPM Registry
 
 on:
   push:
