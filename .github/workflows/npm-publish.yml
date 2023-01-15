@@ -23,12 +23,20 @@ jobs:
       - name: Install dependencies
         run: yarn install --force --frozen-lockfile --production=false
 
-      - name: Run linters
+      - name: Run Linters
         run: yarn lint
 
       - name: Run Tests
         run: yarn test
 
-      - name: See contents of packed
+      - name: Build package
+        run: yarn build
+
+      - name: See publishing contents
         run: |
           yarn pack:list
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
