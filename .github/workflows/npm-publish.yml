@@ -6,7 +6,7 @@ on:
       - 'v*.*.*'
 
 jobs:
-  setup:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,17 +23,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --force --frozen-lockfile --production=false
 
-  run-linters:
-    steps:
       - name: Run linters
         run: yarn lint
 
-  run-tests:
-    steps:
       - name: Run Tests
         run: yarn test
 
-  pre-pack:
-    steps:
       - name: See contents of packed
         run: echo "yarn pack:list" >> $GITHUB_OUTPUT
