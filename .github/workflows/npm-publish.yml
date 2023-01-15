@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: yarn
 
       - name: Use Classic Yarn
         run: yarn set version classic
