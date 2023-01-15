@@ -25,4 +25,4 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: yarn install --force --frozen-lockfile --production=false
+        run: yarn install --force --production=false
