@@ -31,5 +31,4 @@ jobs:
 
       - name: See contents of packed
         run: |
-          echo "PACKED=$(yarn pack:list)" >> $GITHUB_ENV
-          echo "${{ env.PACKED }}"
+          yarn pack:list
