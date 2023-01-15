@@ -1,8 +1,9 @@
 /**
- *  node-module-ts-starter
+ *  styler
  *
  *  @author   abhijithvijayan <https://abhijithvijayan.in>
  *  @license  MIT License
  */
 
-console.log('helloworld');
+export {Styler as default} from './Styler';
+export type {InputType, Input, StylesObject} from './Styler';
