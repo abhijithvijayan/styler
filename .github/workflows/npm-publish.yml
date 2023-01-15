@@ -1,0 +1,30 @@
+name: Publish Package
+description: Publish package to NPM Registry
+author: Abhijith Vijayan
+
+on:
+  push:
+    tags:
+      - 'v*.*.*
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Yarn v1
+        run: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          sudo apt update && sudo apt install --no-install-recommends yarn
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --force --frozen-lockfile --production=false
