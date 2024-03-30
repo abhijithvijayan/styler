@@ -44,6 +44,6 @@ jobs:
 
       - name: Publish
         # https://docs.npmjs.com/generating-provenance-statements
-        run: npm publish --provenance --access public--ignore-scripts # ignore running prepublishOnly script
+        run: npm publish --provenance --access public --ignore-scripts # ignore running prepublishOnly script
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
