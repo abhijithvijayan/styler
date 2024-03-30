@@ -1,18 +1,18 @@
 {
-  "extends": [
-	"@abhijithvijayan/eslint-config/typescript"
-  ],
-  "parserOptions": {
-	"project": "./tsconfig.eslint.json",
-	"sourceType": "module"
-  },
-  "env": {
-	"jest": true
-  },
-  "rules": {
-	"no-console": "off",
-	"no-param-reassign": "warn",
-	"@typescript-eslint/no-use-before-define": "warn",
-	"@typescript-eslint/no-explicit-any": "warn"
-  }
+	"extends": ["@abhijithvijayan/eslint-config/typescript"],
+	"parserOptions": {
+		"project": "./tsconfig.json",
+		"sourceType": "module"
+	},
+	"env": {
+		"jest": true
+	},
+	"rules": {
+		"no-console": "off",
+		"no-param-reassign": "warn",
+		"class-methods-use-this": "off",
+		"@typescript-eslint/no-use-before-define": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"import/no-import-module-exports": "off"
+	}
 }
