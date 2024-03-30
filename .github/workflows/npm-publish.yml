@@ -1,0 +1,42 @@
+name: Publish package to NPM Registry
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Use Classic Yarn
+        run: yarn set version classic
+
+      - name: Install dependencies
+        run: yarn install --force --frozen-lockfile --production=false
+
+      - name: Run Linters
+        run: yarn lint
+
+      - name: Run Tests
+        run: yarn test
+
+      - name: Build package
+        run: yarn build
+
+      - name: See publishing contents
+        run: |
+          yarn pack:list
+
+      - name: Publish
+        run: npm publish --ignore-scripts # ignore running prepublishOnly script
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

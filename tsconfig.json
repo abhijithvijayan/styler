@@ -1,0 +1,18 @@
+{
+  "extends": "@abhijithvijayan/tsconfig",
+  "compilerOptions": {
+	"outDir": "lib",
+	"lib": [
+	  "dom",
+	  "dom.iterable",
+	  "esnext"
+	]
+  },
+  "include": [
+	"source",
+	"jest.config.js"
+  ],
+  "exclude": [
+	"source/**/tests/**/*.test.ts"
+  ]
+}
