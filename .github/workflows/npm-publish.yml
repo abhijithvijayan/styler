@@ -42,10 +42,6 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: See publishing contents
-        run: |
-          npm run pack:list
-
       - name: Publish
         # https://docs.npmjs.com/generating-provenance-statements
         run: npm publish --provenance --access public--ignore-scripts # ignore running prepublishOnly script
