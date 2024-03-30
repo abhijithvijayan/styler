@@ -17,6 +17,10 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Give permission to mint an ID-token for publishing package with provenance
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -25,6 +29,8 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - run: npm install -g npm
 
       - name: Install dependencies
         run: npm install
@@ -43,6 +49,7 @@ jobs:
           npm run pack:list
 
       - name: Publish
-        run: npm publish --ignore-scripts # ignore running prepublishOnly script
+        # https://docs.npmjs.com/generating-provenance-statements
+        run: npm publish --provenance --access public--ignore-scripts # ignore running prepublishOnly script
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
