@@ -1,4 +1,4 @@
-import {Styler, StylesObject} from '../Styler';
+import {StylesObject, Styler} from '../source/Styler';
 
 const styles: StylesObject = {
   testClass0: 'styler-scoped-base-class-0',

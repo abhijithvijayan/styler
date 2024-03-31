@@ -12,7 +12,6 @@
 	},
 	"include": [
 		"source",
-		"jest.config.js"
 	],
 	"exclude": []
 }
