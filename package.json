@@ -16,6 +16,7 @@
 	},
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
+	"sideEffects": false,
 	"engines": {
 		"node": ">=18"
 	},
