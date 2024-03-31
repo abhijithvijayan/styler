@@ -9,20 +9,21 @@
 		"email": "email@abhijithvijayan.in",
 		"url": "https://abhijithvijayan.in"
 	},
-	"engines": {
-		"node": ">=10.0.0"
+	"type": "module",
+	"exports": {
+		"types": "./lib/index.d.ts",
+		"default": "./lib/index.js"
 	},
-	"main": "lib/cjs/index.js",
-	"module": "lib/esm/index.js",
-	"types": "lib/cjs/index.d.ts",
+	"types": "./lib/index.d.ts",
+	"engines": {
+		"node": ">=18"
+	},
 	"files": [
 		"lib"
 	],
 	"scripts": {
-		"watch": "tsc --module esnext --outDir lib/esm --watch",
-		"build:cjs": "tsc --module commonjs --outDir lib/cjs",
-		"build:esm": "tsc --module esnext --outDir lib/esm",
-		"build": "rimraf lib && npm run build:cjs && npm run build:esm",
+		"watch": "tsc --watch",
+		"build": "rimraf lib && tsc",
 		"pack:list": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
 		"prepublishOnly": "npm run pack:list",
 		"test": "jest",

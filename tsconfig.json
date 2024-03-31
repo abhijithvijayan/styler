@@ -1,17 +1,18 @@
 {
-  "extends": "@abhijithvijayan/tsconfig",
-  "compilerOptions": {
-	"outDir": "lib",
-	"lib": [
-	  "dom",
-	  "dom.iterable",
-	  "esnext"
-	]
-  },
-  "include": [
-	"source",
-	"jest.config.js"
-  ],
-  "exclude": [
-  ]
+	"extends": "@abhijithvijayan/tsconfig",
+	"compilerOptions": {
+		"outDir": "lib",
+		"module": "node16",
+		"target":"ES2022",
+		"lib": [
+			"DOM",
+			"DOM.Iterable",
+			"ES2022"
+		]
+	},
+	"include": [
+		"source",
+		"jest.config.js"
+	],
+	"exclude": []
 }

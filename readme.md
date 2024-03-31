@@ -43,7 +43,7 @@
 
 ## Installation
 
-Ensure you have [Node.js](https://nodejs.org) 10 or later installed. Then run the following:
+Ensure you have [Node.js](https://nodejs.org) 18 or later installed. Then run the following:
 
 ```
 # via npm
